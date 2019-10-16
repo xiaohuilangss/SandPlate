@@ -39,4 +39,5 @@ end = 0
 
 """
 #tr1_1744252 > td:nth-child(2) > a > font
+#tr1_1754624 > td:nth-child(2) > a > font
 """
