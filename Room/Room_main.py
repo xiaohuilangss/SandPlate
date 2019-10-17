@@ -1,4 +1,13 @@
 # encoding=utf-8
+""" =========================== 将当前路径及工程的跟目录添加到路径中 ============================ """
+import sys
+import os
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = curPath[:curPath.find("SandPlate\\")+len("SandPlate\\")]  # 获取myProject，也就是项目的根路径
+
+sys.path.append('..')
+sys.path.append(rootPath)
+
 from SendMsgByQQ.QQGUI import send_qq
 import time
 
