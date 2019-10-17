@@ -49,10 +49,17 @@ while True:
         '青岛租房卖房交流咨询',
         '青岛租房找工作',
         '青岛租房', '青岛合租群', '青岛租房群╬', '青岛租房┞']:
-        send_qq(qun, note_str1)
-        time.sleep(0.5)
-        send_qq(qun, note_str2)
-        time.sleep(0.5)
-        send_qq(qun, note_str3)
 
-    time.sleep(60*30)
+        try:
+            send_qq(qun, note_str1)
+            time.sleep(1.5)
+            send_qq(qun, note_str2)
+            time.sleep(1.5)
+            send_qq(qun, note_str3)
+            time.sleep(1.5)
+            print(qun + '： 消息发送成功！\n------------------------\n\n')
+        except Exception as e:
+            print(qun + '： 消息发送失败！\n原因:\n' + str(e) + '\n------------------------\n\n')
+
+    print('\n\n================== 大循环完成 ==================\n\n')
+    time.sleep(60)
