@@ -2,6 +2,9 @@
 """ =========================== 将当前路径及工程的跟目录添加到路径中 ============================ """
 import sys
 import os
+
+from SDK.MyTimeOPT import get_current_datetime_str
+
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = curPath[:curPath.find("SandPlate\\")+len("SandPlate\\")]  # 获取myProject，也就是项目的根路径
 
@@ -48,7 +51,7 @@ note_str3 = \
 未来的室友，希望我们能够一起愉快的生活~
 """
 
-while True:
+while (get_current_datetime_str()[-8:] >= '06:00:00') & (get_current_datetime_str()[-8:] <= '12:00:00'):
     for qun in [
         '青岛租房群',
         '青岛租房总群',
@@ -70,5 +73,5 @@ while True:
         except Exception as e:
             print(qun + '： 消息发送失败！\n原因:\n' + str(e) + '\n------------------------\n\n')
 
-    print('\n\n================== 大循环完成 ==================\n\n')
-    time.sleep(60*10)
+    print('\n\n================== 大循环完成 ==================\n\n完成时间：' + get_current_datetime_str() + '\n')
+    time.sleep(60*60*3)
