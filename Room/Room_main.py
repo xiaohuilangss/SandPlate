@@ -3,8 +3,7 @@
 import sys
 import os
 
-from Room.Sub import get_all_win_by_name
-from SDK.MyTimeOPT import get_current_datetime_str
+
 
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = curPath[:curPath.find("SandPlate\\")+len("SandPlate\\")]  # 获取myProject，也就是项目的根路径
@@ -12,6 +11,7 @@ rootPath = curPath[:curPath.find("SandPlate\\")+len("SandPlate\\")]  # 获取myP
 sys.path.append('..')
 sys.path.append(rootPath)
 
+from Room.Sub import get_all_win_by_name
 from SDK.MyTimeOPT import get_current_datetime_str
 from SendMsgByQQ.QQGUI import send_qq
 import time
@@ -74,7 +74,7 @@ while (get_current_datetime_str()[-8:] >= '06:00:00') & (get_current_datetime_st
         except Exception as e:
             print(qun + '： 消息发送失败！\n原因:\n' + str(e) + '\n------------------------\n\n')
 
-        print('\n\n================== 大循环完成 ==================\n\n完成时间：' + get_current_datetime_str() + '\n')
-        time.sleep(60*60*5)
+    print('\n\n================== 大循环完成 ==================\n\n完成时间：' + get_current_datetime_str() + '\n')
+    time.sleep(60*60*5)
 
     time.sleep(60*10)
