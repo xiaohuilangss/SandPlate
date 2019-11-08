@@ -96,9 +96,13 @@ def set_image(data):
 
 if __name__ == '__main__':
 
-    # im = Image.open('new.jpg')
-    # im.save('11.bmp')
-    # aString = windll.user32.LoadImageW(0, r"11.bmp", win32con.IMAGE_BITMAP, 0, 0, win32con.LR_LOADFROMFILE)
+    im = Image.open('./12.jpg')
+    im.save('./11.bmp')
+    aString = windll.user32.LoadImageW(0, r"11.bmp", win32con.IMAGE_BITMAP, 0, 0, win32con.LR_LOADFROMFILE)
+
+    send_pic_qq_data('影子', aString)
+
+
     fig = plt.figure()
     plt.title('Just a test!')
 
