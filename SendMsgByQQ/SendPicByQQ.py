@@ -12,8 +12,7 @@ import time
 import win32clipboard as clip
 
 
-
-def setPic(aString):
+def set_pic(aString):
     win32clipboard.OpenClipboard()
     win32clipboard.EmptyClipboard()
     win32clipboard.SetClipboardData(win32con.CF_BITMAP, aString)
@@ -43,7 +42,7 @@ def send_pic_qq(towho, fig):
     output.close()
 
     # 将消息写到剪贴板
-    setImage(data)
+    set_image(data)
 
     # 获取qq窗口句柄
     qq = win32gui.FindWindow(None, towho)
@@ -70,7 +69,7 @@ def send_pic_qq_data(towho, data):
     """
 
     # 将消息写到剪贴板
-    setImage(data)
+    set_image(data)
 
     # 获取qq窗口句柄
     qq = win32gui.FindWindow(None, towho)
@@ -87,7 +86,8 @@ def send_pic_qq_data(towho, data):
     win32gui.SendMessage(qq, win32con.WM_KEYDOWN, win32con.VK_RETURN, 0)
     win32gui.SendMessage(qq, win32con.WM_KEYUP, win32con.VK_RETURN, 0)
 
-def setImage(data):
+
+def set_image(data):
     clip.OpenClipboard()                            # 打开剪贴板
     clip.EmptyClipboard()                           # 先清空剪贴板
     clip.SetClipboardData(win32con.CF_DIB, data)    # 将图片放入剪贴板
