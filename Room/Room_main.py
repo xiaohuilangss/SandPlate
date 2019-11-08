@@ -3,6 +3,8 @@
 import sys
 import os
 
+from Room.Sub import get_all_win_by_name
+from SDK.MyTimeOPT import get_current_datetime_str
 
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = curPath[:curPath.find("SandPlate\\")+len("SandPlate\\")]  # 获取myProject，也就是项目的根路径
@@ -57,43 +59,20 @@ note_str4 = \
 
 未来的室友，希望我们能够一起愉快的生活~
 """
+qun_list = list(set(get_all_win_by_name('租房')))
 
-while True:
-
-    if (get_current_datetime_str()[-8:] >= '06:00:00') & (get_current_datetime_str()[-8:] <= '23:00:00'):
-        for qun in [
-            '青岛租房群',
-            '青岛租房总群',
-            '青岛租房卖房交流咨询',
-            '青岛租房信息交流群★',
-            '青岛租房个人房源',
-            '青岛租房卖房交流咨询',
-            '青岛租房找工作',
-            '青岛租房',
-            '青岛合租群',
-            '青岛租房群╬',
-            '青岛租房┞',
-            '青岛租房╚╛',
-            '青岛租房⊿┟',
-            ' 青岛租房联盟群总舵',
-            '青岛租房交友群②群',
-            '青岛租房二手房信息群',
-            '青岛市租房信息交流群',
-	'青岛租房卖房高级群②','青岛租房卖房高级群①'
-        ]:
-
-            try:
-                send_qq(qun, note_str1)
-                time.sleep(1.5)
-                send_qq(qun, note_str2)
-                time.sleep(1.5)
-                send_qq(qun, note_str3)
-                time.sleep(1.5)
-                send_qq(qun, note_str4)
-                time.sleep(1.5)
-                print(qun + '： 消息发送成功！\n------------------------\n\n')
-            except Exception as e:
-                print(qun + '： 消息发送失败！\n原因:\n' + str(e) + '\n------------------------\n\n')
+while (get_current_datetime_str()[-8:] >= '06:00:00') & (get_current_datetime_str()[-8:] <= '12:00:00'):
+    for qun in qun_list:
+        try:
+            send_qq(qun, note_str1)
+            time.sleep(1.5)
+            send_qq(qun, note_str2)
+            time.sleep(1.5)
+            send_qq(qun, note_str3)
+            time.sleep(1.5)
+            print(qun + '： 消息发送成功！\n------------------------\n\n')
+        except Exception as e:
+            print(qun + '： 消息发送失败！\n原因:\n' + str(e) + '\n------------------------\n\n')
 
         print('\n\n================== 大循环完成 ==================\n\n完成时间：' + get_current_datetime_str() + '\n')
         time.sleep(60*60*5)
