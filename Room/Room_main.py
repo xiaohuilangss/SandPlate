@@ -3,6 +3,7 @@
 import sys
 import os
 
+from Room.Sub import get_all_win_by_name
 from SDK.MyTimeOPT import get_current_datetime_str
 
 curPath = os.path.abspath(os.path.dirname(__file__))
@@ -50,18 +51,10 @@ note_str3 = \
 
 未来的室友，希望我们能够一起愉快的生活~
 """
+qun_list = list(set(get_all_win_by_name('租房')))
 
 while (get_current_datetime_str()[-8:] >= '06:00:00') & (get_current_datetime_str()[-8:] <= '12:00:00'):
-    for qun in [
-        '青岛租房群',
-        '青岛租房总群',
-        '青岛租房卖房交流咨询',
-        '青岛租房信息交流群★',
-        '青岛租房个人房源',
-        '青岛租房卖房交流咨询',
-        '青岛租房找工作',
-        '青岛租房', '青岛合租群', '青岛租房群╬', '青岛租房┞', '青岛租房╚╛', '青岛租房⊿┟']:
-
+    for qun in qun_list:
         try:
             send_qq(qun, note_str1)
             time.sleep(1.5)
