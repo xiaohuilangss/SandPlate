@@ -12,6 +12,7 @@ rootPath = curPath[:curPath.find("SandPlate\\")+len("SandPlate\\")]  # 获取myP
 sys.path.append('..')
 sys.path.append(rootPath)
 
+from SDK.MyTimeOPT import get_current_datetime_str
 from SendMsgByQQ.QQGUI import send_qq
 import time
 
