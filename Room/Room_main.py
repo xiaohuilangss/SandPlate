@@ -39,6 +39,12 @@ note_str3 = \
 未来的室友，希望我们能够一起愉快的生活~
 """
 
+note_str4 = \
+"""
+联系方式：
+
+"""
+
 while True:
     for qun in [
         '青岛租房群',
@@ -54,5 +60,5 @@ while True:
         send_qq(qun, note_str2)
         time.sleep(0.5)
         send_qq(qun, note_str3)
-
+        send_qq(qun, note_str4)
     time.sleep(60*30)
