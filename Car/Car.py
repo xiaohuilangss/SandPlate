@@ -17,11 +17,11 @@ import time
 
 note_str1 = \
 """
-人找车，今晚6点以后或明天上午，青岛市北台东到平度同和(在平度南高速口附近，下高速2000米左右就到)，一个人，顺路的老乡小窗联系！
+人找车，今天下午（具体时间可以商量），平度同和(在平度南高速口附近)到青岛市北台东，一个人，顺路的老乡小窗联系！
 """
-qun_list = list(set(get_all_win_by_name('拼车')))
+qun_list = list(set(get_all_win_by_name('拼车'))) + list(set(get_all_win_by_name('顺风车')))
 
-while (get_current_datetime_str()[-8:] >= '06:00:00') & (get_current_datetime_str()[-8:] <= '12:00:00'):
+while (get_current_datetime_str()[-8:] >= '06:00:00') & (get_current_datetime_str()[-8:] <= '23:00:00'):
     for qun in qun_list:
         try:
             send_qq(qun, note_str1)
