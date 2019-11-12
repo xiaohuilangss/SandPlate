@@ -17,6 +17,7 @@ keyboard = kController()
 #
 #定义指定图片文件复制到剪贴板函数
 
+
 def pic_ctrl_c(pathfile):
     img = Image.open(pathfile)
     output = BytesIO()                              # 如是StringIO分引起TypeError: string argument expected, got 'bytes'

@@ -1,4 +1,4 @@
-# encoding=utf-8
+﻿# encoding=utf-8
 from SendMsgByQQ.QQGUI import send_qq
 import time
 
