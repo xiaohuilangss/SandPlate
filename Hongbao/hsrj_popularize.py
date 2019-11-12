@@ -5,7 +5,7 @@ from SendMsgByQQ.QQGUI import send_qq, send_msg_to_qun
 
 
 qun_list = \
-    list(set(get_all_win_by_name('五行缺钱')))
+    list(set(get_all_win_by_name('影子')))
 
 
 # 向qun中发消息
