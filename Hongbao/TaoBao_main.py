@@ -24,12 +24,16 @@ note_str1 = \
 
 note_str2 = \
 """
-上亿红包天天领，每日3次机会，复制掏口令去掏寳，最高领取1111元红包！ £IRl3YGJDOOl£
+【快来兑换你的双11红I包，可赢额外红I包】https://m.tb.cn/h.etQyNSR?sm=64355a 嚸↑↓擊鏈ㄣ接，再选择瀏覽●噐○咑閞ヽ；或復ず■淛整句话￥orm1YuW897g￥后咑閞手机天猫
 """
 
-qun_list = list(set(get_all_win_by_name('找工作')))
+qun_list = \
+    list(set(get_all_win_by_name('找工作'))) + \
+    list(set(get_all_win_by_name('军事'))) + \
+    list(set(get_all_win_by_name('租房')))
 
-while (get_current_datetime_str()[-8:] >= '06:00:00') & (get_current_datetime_str()[-8:] <= '12:00:00'):
+
+while (get_current_datetime_str()[-8:] >= '06:00:00') & (get_current_datetime_str()[-8:] <= '23:00:00'):
     for qun in qun_list:
         try:
             send_qq(qun, note_str1)
