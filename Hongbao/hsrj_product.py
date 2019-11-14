@@ -19,17 +19,25 @@ if __name__ == '__main__':
     r = get_product_info(r'C:/Users\paul\Desktop\文案')
 
     # 获取群列表
+    # qun_list = \
+    #     list(set(get_all_win_by_name('找工作'))) + \
+    #     list(set(get_all_win_by_name('军事'))) + \
+    #     list(set(get_all_win_by_name('租房'))) + \
+    #     list(set(get_all_win_by_name('拼车'))) + \
+    #     list(set(get_all_win_by_name('兼职'))) + \
+    #     list(set(get_all_win_by_name('吃鸡'))) + \
+    #     list(set(get_all_win_by_name('赚钱')))
+
     qun_list = \
-        list(set(get_all_win_by_name('找工作'))) + \
-        list(set(get_all_win_by_name('军事'))) + \
-        list(set(get_all_win_by_name('租房'))) + \
-        list(set(get_all_win_by_name('拼车'))) + \
-        list(set(get_all_win_by_name('兼职'))) + \
-        list(set(get_all_win_by_name('吃鸡'))) + \
-        list(set(get_all_win_by_name('赚钱')))
+	        list(set(get_all_win_by_name('影子')))
 
     while True:
 
-        send_all_product_to_all_qun(qun_list, r, 1.5, 2)
+        send_all_product_to_all_qun(
+	        qun_list_=qun_list,
+	        product_list=r,
+	        text_st=0.2,
+	        pic_st=0.5,
+	        product_st=0)
         time.sleep(60*60*4)
 
