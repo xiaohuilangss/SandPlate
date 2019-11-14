@@ -7,33 +7,29 @@ import codecs
 import glob
 import os
 
+import time
+
+from Hongbao.Sub import get_product_info, send_all_product_to_all_qun
+from Room.Sub import get_all_win_by_name
 
 if __name__ == '__main__':
 
-    dir = r'C:/Users\paul\Desktop\文案'
 
-    # 遍历其下的文件夹（商品）
-    fs = os.listdir(dir)
+    # 获取产品列表
+    r = get_product_info(r'C:/Users\paul\Desktop\文案')
 
-    for product_path_rela in fs:
-        product_path_abs = os.path.join(dir, product_path_rela)
+    # 获取群列表
+    qun_list = \
+        list(set(get_all_win_by_name('找工作'))) + \
+        list(set(get_all_win_by_name('军事'))) + \
+        list(set(get_all_win_by_name('租房'))) + \
+        list(set(get_all_win_by_name('拼车'))) + \
+        list(set(get_all_win_by_name('兼职'))) + \
+        list(set(get_all_win_by_name('吃鸡'))) + \
+        list(set(get_all_win_by_name('赚钱')))
 
-        # 获取购买关键字
-        with open(product_path_abs + '/文本.txt', 'r', encoding='utf-8') as f:
-            key_buy = f.read()
+    while True:
 
-        # 获取介绍
-        with open(product_path_abs + '/介绍.txt', 'r', encoding='utf-8') as f:
-            introduce_buy = f.read()
-
-        # 获取图片路径
-        img_list = glob.glob(product_path_abs + '/*.bmp')
-        if not len(img_list):
-            img_list = \
-                glob.glob(product_path_abs + '/*.jpg') + \
-                glob.glob(product_path_abs + '/*.png') + \
-                glob.glob(product_path_abs + '/*.jpeg')
-
-
-        end = 0
+        send_all_product_to_all_qun(qun_list, r, 1.5, 2)
+        time.sleep(60*60*4)
 
