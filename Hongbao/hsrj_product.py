@@ -37,7 +37,7 @@ if __name__ == '__main__':
 	        qun_list_=qun_list,
 	        product_list=r,
 	        text_st=0.2,
-	        pic_st=0.5,
+	        pic_st=1.5,
 	        product_st=0)
         time.sleep(60*60*2)
 
